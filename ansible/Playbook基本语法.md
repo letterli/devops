@@ -67,7 +67,7 @@ ansible-playbook deploy.yaml --ask-become-pass
 > * 每一个task的对module的一次调用。使用不同的参数和变量而已。
 > * 每一个task最好有name属性，这个是供人读的，没有实际的操作。然后会在命令行里面输出，提示用户执行情况。
 
-##### 语法
+####### 语法
 
 task基本语法：
 ```yaml
@@ -94,7 +94,7 @@ TASK: [service name=httpd state=running] **************************************
 changed: [yourhost]
 ```
 
-##### 参数的不同写法
+####### 参数的不同写法
 
 最基本的传入module的参数的方法 key=value
 ```yaml
@@ -166,7 +166,7 @@ Tasks中的任务都是有状态的，changed或者ok。 在Ansible中，只在t
         msg: 'call handler'
 ```
 
-##### action是Changed ,才会执行handler
+###### action是Changed ,才会执行handler
 
 只有当TASKS种的action的执行状态是changed时，才会触发notify handler的执行。
 
@@ -202,7 +202,7 @@ Tasks中的任务都是有状态的，changed或者ok。 在Ansible中，只在t
 
 ##### 按Handler的定义顺序执行
 
-handlers是按照在handlers中定义个顺序执行的，而不是安照notify的顺序执行的。
+handlers是按照在handlers中定义个顺序执行的，而不是安装notify的顺序执行的。
 下面的例子定义的顺序是1>2，notify的顺序是2>1，实际执行顺序：1>2。
 
 ```yaml

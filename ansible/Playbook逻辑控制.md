@@ -1,4 +1,4 @@
-#### Playbook逻辑控制
+### Playbook逻辑控制
 ---
 
 > * when： 条件判断语句，类似于变成语言中的if;
@@ -6,7 +6,7 @@
 > * block： 把几个tasks组成一块代码，便于针对一组操作的异常处理等操作;
 
 
-##### 条件语句When
+#### 条件语句When
 
 有时候用户有可能需满足特定条件才执行某一个特定的步骤。
 在某一个特定版本的系统上装包，或者只在磁盘空间满了的文件系统上执行清理操作一样。这些操作在Ansible上，使用when语句都非常简单。
@@ -81,7 +81,7 @@ tasks:
       when: item > 5
 ```
 
-##### 循环语句Loop
+#### 循环语句Loop
 
 ####### 标准循环
 
@@ -136,7 +136,7 @@ tasks:
     - [ 'clientdb', 'employeedb', 'providerd']
 ```
 
-##### 块语句Block
+#### 块语句Block
 
 多个action组装成块，可以根据不同条件执行一段语句 ：
 ```yaml
@@ -154,7 +154,7 @@ tasks:
    when: ansible_distribution == 'CentOS'
    become: true
    become_user: root
-
+```
 组装成块处理异常更方便：
 ```yaml
 tasks:
