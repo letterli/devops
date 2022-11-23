@@ -1,0 +1,10 @@
+---
+- name: install epel
+  yum: name=epel-release state=latest
+- name: install nginx
+  yum: name=nginx state=latest
+- name: copy nginx.conf template
+  template: src=nginx.conf dest=/usr/local/nginx/nginx.conf
+- name: copy index.html
+  copy: src=/path/files/index.html dest=/usr/local/nginx/html/index.html
+  notify: start nginx

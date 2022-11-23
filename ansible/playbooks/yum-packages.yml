@@ -1,0 +1,11 @@
+---
+- hosts: webservers
+  user: root
+  tasks:
+  - name: yum packages
+    yum: name={{item}} state=latest
+    with_items:
+      - httpd
+      - php
+      - php-mysql
+      - php-gd

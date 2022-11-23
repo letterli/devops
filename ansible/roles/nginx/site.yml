@@ -1,0 +1,5 @@
+---
+- hosts: webservers
+  user: root
+  roles:
+    - nginx

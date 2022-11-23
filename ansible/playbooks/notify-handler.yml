@@ -1,0 +1,10 @@
+---
+- hosts: webservers
+  user: root
+  tasks:
+  - name: copy nginx.conf
+    copy: src=/opt/nginx/nginx.conf dest=/var/nginx/nginx.conf
+    notify: start nginx
+  handlers:
+  - name: start nginx
+    service: name=nginx state=started
